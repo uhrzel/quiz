@@ -1130,6 +1130,10 @@
         <button id="backButton" class="buttonq" onclick="goBack()">Back</button>
     </div>
 </div>
+<audio id="easyAudio" src="EASY_MODE.mp3"></audio>
+<audio id="mediumAudio" src="MEDIUM_MODE.mp3"></audio>
+<audio id="hardAudio" src="HARD_MODE.mp3"></audio>
+
 <div class="easy-sidebar" id="easy-sidebar">
     <a id="logo-container-easy">
         <img id="logo-easy" src="Quizical.png" alt="Logo">
@@ -1290,24 +1294,36 @@
         document.getElementById('content-containerq').style.display = 'flex';
         document.getElementById('buttons-containerq').style.display = 'flex';
     }
-    function ToEasy() {
-        document.getElementById('content-containerq').style.display = 'none';
-        document.getElementById('buttons-containerq').style.display = 'none';
-        document.getElementById('easy-sidebar').style.display = 'block';
-        document.getElementById('easy-content').style.display = 'block';
-    }
-    function ToMedium() {
-        document.getElementById('content-containerq').style.display = 'none';
-        document.getElementById('buttons-containerq').style.display = 'none';
-        document.getElementById('medium-sidebar').style.display = 'block';
-        document.getElementById('medium-content').style.display = 'block';
-    }
-    function ToHard() {
-        document.getElementById('content-containerq').style.display = 'none';
-        document.getElementById('buttons-containerq').style.display = 'none';
-        document.getElementById('hard-sidebar').style.display = 'block';
-        document.getElementById('hard-content').style.display = 'block';
-    }
+function ToEasy() {
+    document.getElementById('content-containerq').style.display = 'none';
+    document.getElementById('buttons-containerq').style.display = 'none';
+    document.getElementById('easy-sidebar').style.display = 'block';
+    document.getElementById('easy-content').style.display = 'block';
+    
+    // Play the easy music
+    document.getElementById('easyAudio').play();
+}
+
+function ToMedium() {
+    document.getElementById('content-containerq').style.display = 'none';
+    document.getElementById('buttons-containerq').style.display = 'none';
+    document.getElementById('medium-sidebar').style.display = 'block';
+    document.getElementById('medium-content').style.display = 'block';
+    
+    // Play the medium music
+    document.getElementById('mediumAudio').play();
+}
+
+function ToHard() {
+    document.getElementById('content-containerq').style.display = 'none';
+    document.getElementById('buttons-containerq').style.display = 'none';
+    document.getElementById('hard-sidebar').style.display = 'block';
+    document.getElementById('hard-content').style.display = 'block';
+    
+    // Play the hard music
+    document.getElementById('hardAudio').play();
+}
+
     function goBack() {
         document.getElementById('main-content').style.display = 'block'; // Show the main content
         document.getElementById('pubchem-info').style.display = 'block'; // Show the PubChem info
@@ -2125,6 +2141,7 @@
 
         // Call the function when user interacts with the page
         document.body.addEventListener("click", playBackgroundMusic, { once: true });
+        
     });
     var allDataElements = {
         hydrogen: {
